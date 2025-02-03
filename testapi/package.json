@@ -1,0 +1,21 @@
+{
+  "name": "testapi",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "gendata": "tsx generateTestData.ts",
+    "start": "tsx ."
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "fastify": "^5.2.1",
+    "tsx": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.0"
+  }
+}

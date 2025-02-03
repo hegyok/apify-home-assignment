@@ -1,0 +1,29 @@
+services:
+  scraper:
+    build:
+      context: ./scraper
+      dockerfile: Dockerfile
+    depends_on:
+     testapi:
+      condition: service_healthy
+    volumes:
+      - ./output.json:/app/output.json
+    networks:
+      - app
+
+  testapi:
+    build:
+      context: ./testapi
+      dockerfile: Dockerfile
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/products"]
+      interval: 5s
+      timeout: 30s
+      retries: 3
+      start_period: 10s
+    networks:
+      - app
+
+networks:
+  app:
+    driver: bridge
