@@ -61,7 +61,7 @@ async function fetchProducts(
 		json = await response.json();
 	} catch (e) {
 		//Handle invalid JSON response
-		console.error("Failed to parse response as JSON. Received:", json);
+		console.error("Failed to parse response as JSON.");
 		process.exit(1);
 	}
 	return json;
